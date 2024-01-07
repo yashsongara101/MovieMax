@@ -24,6 +24,20 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = MovieMax;
 		};
+		BF3A290A2B4B6D390009DB3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF3A29052B4B6D390009DB3C /* ReactNativeConfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2648DF1C7BE17A00B8F155;
+			remoteInfo = ReactNativeConfig;
+		};
+		BF3A290C2B4B6D390009DB3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF3A29052B4B6D390009DB3C /* ReactNativeConfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DF7F6AC203AA09B00D0EAB7;
+			remoteInfo = "ReactNativeConfig-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +57,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-MovieMax.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MovieMax.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MovieMax/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MovieMax-MovieMaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieMax-MovieMaxTests.release.xcconfig"; path = "Target Support Files/Pods-MovieMax-MovieMaxTests/Pods-MovieMax-MovieMaxTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF3A29052B4B6D390009DB3C /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -109,6 +124,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF3A29052B4B6D390009DB3C /* ReactNativeConfig.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -146,6 +162,15 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-MovieMax-MovieMaxTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BF3A29062B4B6D390009DB3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF3A290B2B4B6D390009DB3C /* libReactNativeConfig.a */,
+				BF3A290D2B4B6D390009DB3C /* libReactNativeConfig-tvOS.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +246,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BF3A29062B4B6D390009DB3C /* Products */;
+					ProjectRef = BF3A29052B4B6D390009DB3C /* ReactNativeConfig.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* MovieMax */,
@@ -228,6 +259,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BF3A290B2B4B6D390009DB3C /* libReactNativeConfig.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeConfig.a;
+			remoteRef = BF3A290A2B4B6D390009DB3C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BF3A290D2B4B6D390009DB3C /* libReactNativeConfig-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReactNativeConfig-tvOS.a";
+			remoteRef = BF3A290C2B4B6D390009DB3C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -544,7 +592,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -572,6 +620,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -579,7 +628,14 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -616,7 +672,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -636,6 +692,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -643,7 +700,14 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
